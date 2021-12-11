@@ -58,6 +58,12 @@ const FieldData: Record<number, Field> = {
     type: FieldType.Property
   },
 
+  15: {
+    title: "Warsaw Central",
+    price: 200,
+    type: FieldType.Railway
+  },
+
   16: {
     title: "Cracow",
     price: 180,
@@ -96,6 +102,12 @@ const FieldData: Record<number, Field> = {
     type: FieldType.Property
   },
 
+  25: {
+    title: "Taipei Station",
+    price: 200,
+    type: FieldType.Railway
+  },
+
   26: {
     title: "Hiroshima",
     price: 260,
@@ -132,6 +144,12 @@ const FieldData: Record<number, Field> = {
     price: 300,
     color: "#00c400",
     type: FieldType.Property
+  },
+
+  35: {
+    title: "Chhatrapati Shivaji Terminus",
+    price: 200,
+    type: FieldType.Railway
   },
 
   37: {

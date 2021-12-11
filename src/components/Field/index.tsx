@@ -9,11 +9,13 @@ interface Props {
 const Field = ({ index }: Props) => {
   const fieldData = data?.[index] || {};
   const { type, title, color, price } = fieldData;
+  const longTitle = title?.length > 10;
   return (
     <div
       className={clsx("field", type, {
         "is-wide": index % 10 === 0,
-        "is-property": type === FieldType.Property
+        "is-property": type === FieldType.Property,
+        "is-long": longTitle
       })}
       style={
         {

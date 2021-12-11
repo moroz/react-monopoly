@@ -5,15 +5,18 @@
   .property-color
     background: var(--property-color)
 
-  &.is-property
-    .content
-      display: flex
-      flex-direction: column
-      align-items: center
+  .content
+    display: flex
+    flex-direction: column
+    align-items: center
 
   .title
     flex: 1
     font-size: .8em
+
+  &.is-long
+    .title
+      font-size: .7em
 
   .content
     position: relative
@@ -54,9 +57,10 @@
       border-top: $border
       grid-row: 2
 
+    .content
+      transform: rotate(180deg)
+
     &.is-property
-      .content
-        transform: rotate(180deg)
 
       .field-content
         grid-template-rows: 8fr 2fr
@@ -93,10 +97,14 @@
         grid-template-columns: 2fr 8fr
         height: 100%
 
+    &.railway
       .content
-        writing-mode: vertical-rl
-        transform: rotate(180deg)
-        padding: 0 .25rem
+        padding-right: .75rem
+
+    .content
+      writing-mode: vertical-rl
+      transform: rotate(180deg)
+      padding: 0 .25rem
 
   .property-color
     border-right: $border
