@@ -1,13 +1,18 @@
-$border: 3px solid white
+$border: 3px solid var(--fg)
 $board-size: 95vmin
+$board-bg: lighten(#00cc60, 45%)
+
+:root
+  --fg: black
+  --bg: white
 
 
 *, *::after, *::before
   box-sizing: border-box
 
 body
-  background: black
-  color: white
+  background: var(--bg)
+  color: var(--fg)
   display: grid
   place-items: center
   height: 100vh
@@ -17,6 +22,7 @@ body
   width: $board-size
   margin: 0 auto
   border: $border
+  background: $board-bg
 
 .board-fields, .board-row, .board-center
   display: grid
@@ -29,16 +35,43 @@ body
   grid-template-columns: 2fr repeat(9, 1fr) 2fr
 
   .field
-    &:not(:last-child)
-      border-right: $border
+    border-right: $border
 
-  &.top
-    .field
-      border-bottom: $border
-
-  &.bottom
+  &.south
     .field
       border-top: $border
+
+.field
+  overflow: hidden
+
+.north
+  .field
+    border-bottom: $border
+
+    .property-color
+      border-top: $border
+      grid-row: 2
+
+    &.is-property
+      .content
+        display: flex
+        flex-direction: column
+        align-items: center
+        transform: rotate(180deg)
+
+      .title
+        flex: 1
+
+      .field-content
+        grid-template-rows: 8fr 2fr
+
+  .field-content
+    height: 100%
+
+.south, .north
+  .field
+    &:last-child
+      border-right: 0
 
 .board-center
   grid-template-columns: 2fr 9fr 2fr
@@ -52,11 +85,19 @@ body
     &:not(:last-child)
       border-bottom: $border
 
-  &.left
+    &:not(.is-property)
+      .content
+        height: 100%
+        display: flex
+        align-items: center
+
+  &.east
     .field
       border-right: $border
-      grid-template-columns: 8fr 2fr
-      grid-template-rows: initial
+      .field-content
+        height: 100%
+        grid-template-columns: 8fr 2fr
+        grid-template-rows: initial
 
       .title
         flex: 1
@@ -67,12 +108,6 @@ body
       .property-color
         border-left: $border
         grid-column: 2
-
-      &:not(.is-property)
-        .content
-          height: 100%
-          display: flex
-          align-items: center
 
       &.is-property .content
         padding: 0 .25rem
@@ -85,12 +120,12 @@ body
 
       .index
 
-  &.right
-    .field
-      border-left: $border
+.west
+  .field
 
 .board-middle
   position: relative
+  border-right: $border
 
 .game-title
   display: block
@@ -105,12 +140,13 @@ body
   position: relative
 
   &.is-property
-    display: grid
-    grid-template-rows: 2fr 8fr
+    .field-content
+      display: grid
+      grid-template-rows: 2fr 8fr
 
     .content
       position: relative
-  
+
   &.is-wide
 
   .property-color

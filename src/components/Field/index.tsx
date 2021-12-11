@@ -21,12 +21,14 @@ const Field = ({ index }: Props) => {
         } as any
       }
     >
-      {type === FieldType.Property ? (
-        <div className="property-color"></div>
-      ) : null}
-      <div className="content">
-        {title ? <span className="title">{title}</span> : null}
-        <span className="index">{index}</span>
+      <div className="field-content">
+        {type === FieldType.Property ? (
+          <div className="property-color"></div>
+        ) : null}
+        <div className="content">
+          {title ? <span className="title">{title}</span> : null}
+          <span className="index">{index}</span>
+        </div>
       </div>
     </div>
   );
