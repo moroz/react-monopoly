@@ -1,0 +1,54 @@
+$border: 3px solid white
+
+*, *::after, *::before
+  box-sizing: border-box
+
+body
+  background: black
+  color: white
+
+.board
+  height: 100vh
+  width: 100vh
+  margin: 0 auto
+  border: $border
+
+.board-fields, .board-row, .board-center
+  display: grid
+
+.board-fields
+  grid-template-rows: 2fr 9fr 2fr
+  height: 100%
+
+.board-row
+  grid-template-columns: 2fr repeat(9, 1fr) 2fr
+  .field
+    &:not(:last-child)
+      border-right: $border
+
+  &.top
+    .field
+      border-bottom: $border
+
+  &.bottom
+    .field
+      border-top: $border
+
+.board-center
+  grid-template-columns: 2fr 9fr 2fr
+
+.board-column
+  display: grid
+  grid-template-rows: repeat(9, 1fr)
+  height: 100%
+  .field
+    &:not(:last-child)
+      border-bottom: $border
+
+  &.left
+    .field
+      border-right: $border
+
+  &.right
+    .field
+      border-left: $border

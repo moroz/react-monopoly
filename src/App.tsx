@@ -1,45 +1,43 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import "./app.sass";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div className="board">
+      <div className="board-fields">
+        <div className="board-row top">
+          {new Array(11).fill(null).map((_, idx) => (
+            <div className="field" key={idx}>
+              {idx}
+            </div>
+          ))}
+        </div>
+        <div className="board-center">
+          <div className="board-column left">
+            {new Array(9).fill(null).map((_, idx) => (
+              <div className="field" key={idx}>
+                {idx}
+              </div>
+            ))}
+          </div>
+          <div className="board-middle"></div>
+          <div className="board-column right">
+            {new Array(9).fill(null).map((_, idx) => (
+              <div className="field" key={idx}>
+                {idx}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="board-row bottom">
+          {new Array(11).fill(null).map((_, idx) => (
+            <div className="field" key={idx}>
+              {idx}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
