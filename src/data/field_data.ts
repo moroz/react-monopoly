@@ -1,4 +1,6 @@
 import { Field, FieldType } from "../interfaces/fields";
+import Poké_Mart from "./Poké_Mart.png";
+import Poké_Center from "./Poké_Center.png";
 
 const FieldData: Record<number, Field> = {
   "1": {
@@ -69,6 +71,15 @@ const FieldData: Record<number, Field> = {
     color: "#0043ff",
     type: FieldType.Property
   },
+
+  13: {
+    title: "Poké Center",
+    logo: Poké_Center,
+    price: 150,
+    color: "#ffff00",
+    type: FieldType.Utility
+  },
+
   14: {
     title: "Kyiv",
     price: 160,
@@ -141,6 +152,15 @@ const FieldData: Record<number, Field> = {
     color: "#ffff00",
     type: FieldType.Property
   },
+
+  28: {
+    title: "Poké Mart",
+    logo: Poké_Mart,
+    price: 150,
+    color: "#ffff00",
+    type: FieldType.Utility
+  },
+
   27: {
     title: "Tokyo",
     price: 280,
