@@ -32,10 +32,18 @@
     &:not(:last-child)
       border-right: $border
 
+  .railway
+    img
+      margin-bottom: 1rem
+
 .east, .west
   .field
     &:not(:last-child)
       border-bottom: $border
+
+  .railway
+    img
+      transform: rotate(90deg)
 
 .south
   .property-color
@@ -65,7 +73,7 @@
       .field-content
         grid-template-rows: 8fr 2fr
 
-.east
+.west
   .field
     border-right: $border
 
@@ -89,7 +97,8 @@
       align-items: center
       flex-direction: row-reverse
 
-.west
+
+.east
   .field
     &.is-property
       .field-content
@@ -101,6 +110,7 @@
       .content
         padding-right: .75rem
 
+
     .content
       writing-mode: vertical-rl
       transform: rotate(180deg)
@@ -108,3 +118,7 @@
 
   .property-color
     border-right: $border
+
+.railway
+  img
+    height: 1.75rem

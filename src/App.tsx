@@ -11,7 +11,7 @@ function App() {
           ))}
         </div>
         <div className="board-center">
-          <div className="board-column east">
+          <div className="board-column west">
             {new Array(9).fill(null).map((_, idx) => (
               <Field index={9 - idx} key={idx} />
             ))}
@@ -19,7 +19,7 @@ function App() {
           <div className="board-middle">
             <span className="game-title">Stereopoly</span>
           </div>
-          <div className="board-column west">
+          <div className="board-column east">
             {new Array(9).fill(null).map((_, idx) => (
               <Field index={21 + idx} key={idx} />
             ))}
