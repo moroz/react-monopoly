@@ -1,18 +1,24 @@
+export enum MarkerType {
+  Dino = "dino",
+  Car = "car",
+  Dog = "dog"
+}
+
 export class Player {
   name: string;
-  color: string;
-  position: number = 1;
+  marker: MarkerType;
+  position: number = 0;
   balance: number = 1500;
 
-  constructor(name: string, color: string) {
+  constructor(name: string, marker: MarkerType) {
     this.name = name;
-    this.color = color;
+    this.marker = marker;
   }
 }
 
 export enum GameStage {
-  Preparation,
-  Gameplay
+  Preparation = "preparation",
+  Gameplay = "gameplay"
 }
 
 export class GameState {

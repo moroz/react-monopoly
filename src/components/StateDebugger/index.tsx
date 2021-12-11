@@ -1,12 +1,26 @@
+import { ActionType } from "../../store/actions";
 import { useGameState } from "../../store/context";
+import styles from "./StateDebugger.module.sass";
 
 const StateDebugger = () => {
-  const [state] = useGameState();
+  const [state, dispatch] = useGameState();
+
+  const onReset = () => {
+    dispatch({ type: ActionType.ResetGame });
+  };
+
+  const onStart = () => {
+    dispatch({ type: ActionType.StartGame });
+  };
 
   return (
-    <div className="state-debugger">
+    <div className={styles.root}>
       <table>
         <tbody>
+          <tr>
+            <th>Stage:</th>
+            <td>{state.stage}</td>
+          </tr>
           <tr>
             <th>Current player:</th>
             <td>{state.currentPlayer}</td>
@@ -15,8 +29,29 @@ const StateDebugger = () => {
             <th>Turn:</th>
             <td>{state.turn}</td>
           </tr>
+          <tr>
+            <th>Player count:</th>
+            <td>{state.players.length}</td>
+          </tr>
         </tbody>
       </table>
+
+      {state.players.map((player) => (
+        <>
+          <h3>{player.name}</h3>
+          <table>
+            <tbody>
+              <tr>
+                <th>Balance:</th>
+                <td>${player.balance}</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ))}
+
+      <button onClick={onReset}>Reset</button>
+      <button onClick={onStart}>Start game</button>
     </div>
   );
 };

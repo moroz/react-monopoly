@@ -5,6 +5,7 @@ import Railway from "./Railway";
 import Social from "./Social";
 import Chance from "./Chance";
 import Utility from "./Utility";
+import PlayerMarkers from "../PlayerMarkers";
 
 interface Props {
   index: number;
@@ -22,6 +23,7 @@ const Field = ({ index }: Props) => {
   const { type, title, color, price } = fieldData;
   const longTitle = title?.length && title.length > 10;
   const CustomRenderer = FieldTypeToComponent[type];
+
   return (
     <div
       className={clsx("field", type, {
@@ -49,6 +51,7 @@ const Field = ({ index }: Props) => {
           </div>
         )}
       </div>
+      <PlayerMarkers index={index} />
     </div>
   );
 };

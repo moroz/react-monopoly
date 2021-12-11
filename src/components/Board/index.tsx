@@ -26,7 +26,7 @@ function Board() {
         </div>
         <div className="board-row south">
           {new Array(11).fill(null).map((_, idx) => (
-            <Field index={40 - idx} key={idx} />
+            <Field index={(40 - idx) % 40} key={idx} />
           ))}
         </div>
       </div>
