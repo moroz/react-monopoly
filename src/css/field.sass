@@ -136,11 +136,37 @@
     transform: none !important
     padding: 0
     display: grid
-    grid-template-columns: 2fr 3fr
-    grid-template-rows: 2fr 3fr
+    grid-template-columns: 2fr 5fr
+    grid-template-rows: 2fr 5fr
+
+  .img-wrapper
+    display: flex
+    position: relative
+    height: 100%
+    border-left: $border
+    border-top: $border
+
+  .title-left, .title-top
+    text-transform: uppercase
+    font-size: 1.2em
+
+  .title-left
+    justify-self: center
+    writing-mode: vertical-lr
+    transform: rotate(180deg)
+
   img
-    grid-column: 2
-    grid-row: 2
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    object-fit: cover
+    height: 100%
+    width: 100%
+
+  .index
+    transform: rotate(135deg) translateY(50%)
 
 .railway
   --padding-top: .5rem
