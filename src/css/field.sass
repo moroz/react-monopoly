@@ -1,6 +1,7 @@
 .field
   overflow: hidden
   font-size: .85rem
+  --padding-top: .25rem
 
   .property-color
     background: var(--property-color)
@@ -36,12 +37,22 @@
     img
       margin-bottom: 1rem
 
+  .img-wrapper
+    display: flex
+    align-items: center
+
+  .content
+    padding-top: var(--padding-top)
+
 .east, .west
+  .content
+    padding-right: var(--padding-top)
+
   .field
     &:not(:last-child)
       border-bottom: $border
 
-  .railway
+  .railway, .social
     img
       transform: rotate(90deg)
 
@@ -89,7 +100,6 @@
       writing-mode: vertical-rl
 
     .content
-      padding: 0 .25rem
       display: flex
       justify-content: center
       grid-column: 1
@@ -99,6 +109,7 @@
 
 
 .east
+
   .field
     &.is-property
       .field-content
@@ -106,19 +117,25 @@
         grid-template-columns: 2fr 8fr
         height: 100%
 
-    &.railway
-      .content
-        padding-right: .75rem
-
-
     .content
       writing-mode: vertical-rl
       transform: rotate(180deg)
-      padding: 0 .25rem
 
   .property-color
     border-right: $border
 
 .railway
+  --padding-top: .5rem
+
   img
     height: 1.75rem
+
+.social
+  .title
+    flex: 0
+
+  .img-wrapper
+    flex: 1
+
+  img
+    height: 3.5rem

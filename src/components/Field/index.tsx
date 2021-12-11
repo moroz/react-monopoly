@@ -2,20 +2,21 @@ import data from "../../data/field_data";
 import clsx from "clsx";
 import { FieldType } from "../../interfaces/fields";
 import Railway from "./Railway";
-import React from "react";
+import Social from "./Social";
 
 interface Props {
   index: number;
 }
 
 const FieldTypeToComponent: any = {
-  [FieldType.Railway]: Railway
+  [FieldType.Railway]: Railway,
+  [FieldType.Social]: Social
 };
 
 const Field = ({ index }: Props) => {
   const fieldData = data?.[index] || {};
   const { type, title, color, price } = fieldData;
-  const longTitle = title?.length > 10;
+  const longTitle = title?.length && title.length > 10;
   const CustomRenderer = FieldTypeToComponent[type];
   return (
     <div

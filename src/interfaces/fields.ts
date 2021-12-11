@@ -9,7 +9,7 @@ export enum FieldType {
 }
 
 export interface Field {
-  title: string;
+  title?: string;
   price?: number;
   name?: string;
   type: FieldType;

@@ -7,6 +7,11 @@ const FieldData: Record<number, Field> = {
     color: "#ac9393",
     type: FieldType.Property
   },
+
+  "2": {
+    type: FieldType.Social
+  },
+
   "3": {
     title: "Istanbul",
     price: 60,
@@ -69,6 +74,9 @@ const FieldData: Record<number, Field> = {
     price: 180,
     color: "red",
     type: FieldType.Property
+  },
+  17: {
+    type: FieldType.Social
   },
   18: {
     title: "Poznań",
@@ -138,6 +146,9 @@ const FieldData: Record<number, Field> = {
     price: 320,
     color: "#00c400",
     type: FieldType.Property
+  },
+  33: {
+    type: FieldType.Social
   },
   34: {
     title: "Darjeeling",
