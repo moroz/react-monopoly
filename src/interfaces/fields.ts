@@ -5,7 +5,8 @@ export enum FieldType {
   Start = "start",
   Jail = "jail",
   Parking = "parking",
-  Railway = "railway"
+  Railway = "railway",
+  Utility = "utility"
 }
 
 export interface Field {
@@ -14,4 +15,5 @@ export interface Field {
   name?: string;
   type: FieldType;
   color?: string;
+  logo?: string;
 }

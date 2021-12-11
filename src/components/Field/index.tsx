@@ -4,6 +4,7 @@ import { FieldType } from "../../interfaces/fields";
 import Railway from "./Railway";
 import Social from "./Social";
 import Chance from "./Chance";
+import Utility from "./Utility";
 
 interface Props {
   index: number;
@@ -12,7 +13,8 @@ interface Props {
 const FieldTypeToComponent: any = {
   [FieldType.Railway]: Railway,
   [FieldType.Social]: Social,
-  [FieldType.Chance]: Chance
+  [FieldType.Chance]: Chance,
+  [FieldType.Utility]: Utility,
 };
 
 const Field = ({ index }: Props) => {
@@ -25,11 +27,11 @@ const Field = ({ index }: Props) => {
       className={clsx("field", type, {
         "is-wide": index % 10 === 0,
         "is-property": type === FieldType.Property,
-        "is-long": longTitle
+        "is-long": longTitle,
       })}
       style={
         {
-          "--property-color": color
+          "--property-color": color,
         } as any
       }
     >
