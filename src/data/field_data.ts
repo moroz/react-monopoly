@@ -13,6 +13,13 @@ const FieldData: Record<number, Field> = {
     color: "#ac9393",
     type: FieldType.Property
   },
+
+  5: {
+    title: "Gara Sofia",
+    price: 200,
+    type: FieldType.Railway
+  },
+
   "6": {
     title: "Płowdiw",
     price: 100,
@@ -105,6 +112,38 @@ const FieldData: Record<number, Field> = {
     title: "Tokyo",
     price: 280,
     color: "#ffff00",
+    type: FieldType.Property
+  },
+
+  31: {
+    title: "Delhi",
+    price: 300,
+    color: "#00c400",
+    type: FieldType.Property
+  },
+  32: {
+    title: "Bangalore",
+    price: 320,
+    color: "#00c400",
+    type: FieldType.Property
+  },
+  34: {
+    title: "Darjeeling",
+    price: 300,
+    color: "#00c400",
+    type: FieldType.Property
+  },
+
+  37: {
+    title: "Cape Town",
+    price: 350,
+    color: "#27ddb6",
+    type: FieldType.Property
+  },
+  39: {
+    title: "Pretoria",
+    price: 400,
+    color: "#27ddb6",
     type: FieldType.Property
   },
 

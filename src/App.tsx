@@ -1,4 +1,4 @@
-import "./app.sass";
+import "./css/app.sass";
 import Field from "./components/Field";
 
 function App() {

@@ -1,0 +1,102 @@
+.field
+  overflow: hidden
+  font-size: .85rem
+
+  .property-color
+    background: var(--property-color)
+
+  &.is-property
+    .content
+      display: flex
+      flex-direction: column
+      align-items: center
+
+  .title
+    flex: 1
+    font-size: .8em
+
+  .content
+    position: relative
+    height: 100%
+
+.field-content
+  height: 100%
+  display: grid
+  text-align: center
+
+.north, .south
+  .field
+    &:not(:last-child)
+      border-right: $border
+
+.east, .west
+  .field
+    &:not(:last-child)
+      border-bottom: $border
+
+.south
+  .property-color
+    border-bottom: $border
+
+  .field
+    border-top: $border
+
+    &.is-property
+      .field-content
+        display: grid
+        grid-template-rows: 2fr 8fr
+
+.north
+  .field
+    border-bottom: $border
+
+    .property-color
+      border-top: $border
+      grid-row: 2
+
+    &.is-property
+      .content
+        transform: rotate(180deg)
+
+      .field-content
+        grid-template-rows: 8fr 2fr
+
+.east
+  .field
+    border-right: $border
+
+    &.is-property .field-content
+      grid-template-columns: 8fr 2fr
+      grid-template-rows: initial
+
+    .property-color
+      border-left: $border
+      grid-column: 2
+
+    .title, .index, .price
+      writing-mode: vertical-rl
+
+    .content
+      padding: 0 .25rem
+      display: flex
+      justify-content: center
+      grid-column: 1
+      grid-row: 1
+      align-items: center
+      flex-direction: row-reverse
+
+.west
+  .field
+    &.is-property
+      .field-content
+        grid-template-rows: 1fr
+        grid-template-columns: 2fr 8fr
+        height: 100%
+
+      .content
+        writing-mode: vertical-rl
+        transform: rotate(180deg)
+        padding: 0 .25rem
+
+  .property-color
+    border-right: $border

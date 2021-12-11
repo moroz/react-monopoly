@@ -1,10 +1,11 @@
 export enum FieldType {
-  Property,
-  Chance,
-  Social,
-  Start,
-  Jail,
-  Parking
+  Property = "property",
+  Chance = "chance",
+  Social = "social",
+  Start = "start",
+  Jail = "jail",
+  Parking = "parking",
+  Railway = "railway"
 }
 
 export interface Field {

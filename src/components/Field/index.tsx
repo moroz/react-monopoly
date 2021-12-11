@@ -8,10 +8,10 @@ interface Props {
 
 const Field = ({ index }: Props) => {
   const fieldData = data?.[index] || {};
-  const { type, title, color } = fieldData;
+  const { type, title, color, price } = fieldData;
   return (
     <div
-      className={clsx("field", {
+      className={clsx("field", type, {
         "is-wide": index % 10 === 0,
         "is-property": type === FieldType.Property
       })}
@@ -27,6 +27,7 @@ const Field = ({ index }: Props) => {
         ) : null}
         <div className="content">
           {title ? <span className="title">{title}</span> : null}
+          {price ? <span className="price">${price}</span> : null}
           <span className="index">{index}</span>
         </div>
       </div>
