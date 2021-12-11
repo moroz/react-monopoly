@@ -1,6 +1,6 @@
 .field
   overflow: hidden
-  font-size: .85rem
+  font-size: .8rem
   --padding-top: .25rem
 
   .property-color
@@ -13,11 +13,11 @@
 
   .title
     flex: 1
-    font-size: .8em
+    line-height: 1.3
 
   &.is-long
     .title
-      font-size: .7em
+      font-size: .8em
 
   .content
     position: relative
@@ -52,9 +52,8 @@
     &:not(:last-child)
       border-bottom: $border
 
-  .railway, .social
-    img
-      transform: rotate(90deg)
+  img
+    transform: rotate(90deg)
 
 .south
   .property-color
@@ -130,12 +129,25 @@
   img
     height: 1.75rem
 
-.social
+.social, .chance, .railway
+  --padding-top: .5rem
+
   .title
     flex: 0
 
   .img-wrapper
     flex: 1
+    display: flex
+    align-items: center
+    justify-content: center
+
+.social, .chance
+  .title
+    text-transform: uppercase
 
   img
     height: 3.5rem
+
+.social
+  .title
+    font-size: .8em

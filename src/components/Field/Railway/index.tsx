@@ -14,7 +14,9 @@ const Railway: React.FunctionComponent<Props> = ({
   return (
     <div className="content">
       {title ? <span className="title">{title}</span> : null}
-      <img src={Logo} />
+      <div className="img-wrapper">
+        <img src={Logo} />
+      </div>
       {price ? <span className="price">${price}</span> : null}
       <span className="index">{index}</span>
     </div>

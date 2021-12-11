@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { FieldType } from "../../interfaces/fields";
 import Railway from "./Railway";
 import Social from "./Social";
+import Chance from "./Chance";
 
 interface Props {
   index: number;
@@ -10,7 +11,8 @@ interface Props {
 
 const FieldTypeToComponent: any = {
   [FieldType.Railway]: Railway,
-  [FieldType.Social]: Social
+  [FieldType.Social]: Social,
+  [FieldType.Chance]: Chance
 };
 
 const Field = ({ index }: Props) => {

@@ -31,6 +31,19 @@ const FieldData: Record<number, Field> = {
     color: "#d45500",
     type: FieldType.Property
   },
+
+  7: {
+    type: FieldType.Chance
+  },
+
+  22: {
+    type: FieldType.Chance
+  },
+
+  36: {
+    type: FieldType.Chance
+  },
+
   "8": {
     title: "Sofia",
     price: 120,
