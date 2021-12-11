@@ -1,4 +1,6 @@
 $border: 3px solid white
+$board-size: 95vmin
+
 
 *, *::after, *::before
   box-sizing: border-box
@@ -6,10 +8,13 @@ $border: 3px solid white
 body
   background: black
   color: white
+  display: grid
+  place-items: center
+  height: 100vh
 
 .board
-  height: 100vh
-  width: 100vh
+  height: $board-size
+  width: $board-size
   margin: 0 auto
   border: $border
 
@@ -52,3 +57,15 @@ body
   &.right
     .field
       border-left: $border
+
+.board-middle
+  position: relative
+
+.game-title
+  display: block
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%) rotate(-45deg)
+  font-size: calc(#{$board-size} * 1.412 / 11)
+  text-transform: uppercase

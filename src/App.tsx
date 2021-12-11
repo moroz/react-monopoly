@@ -19,7 +19,9 @@ function App() {
               </div>
             ))}
           </div>
-          <div className="board-middle"></div>
+          <div className="board-middle">
+            <span className="game-title">Stereopoly</span>
+          </div>
           <div className="board-column right">
             {new Array(9).fill(null).map((_, idx) => (
               <div className="field" key={idx}>
