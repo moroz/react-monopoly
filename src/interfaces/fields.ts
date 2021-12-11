@@ -6,7 +6,9 @@ export enum FieldType {
   Jail = "jail",
   Parking = "parking",
   Railway = "railway",
-  Utility = "utility"
+  Utility = "utility",
+  Tax = "tax",
+  JailVisit = "jailvisit"
 }
 
 export interface Field {

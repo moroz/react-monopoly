@@ -5,6 +5,10 @@ import Railway from "./Railway";
 import Social from "./Social";
 import Chance from "./Chance";
 import Utility from "./Utility";
+import Tax from "./Tax";
+import Jail from "./Jail";
+import JailVisit from "./JailVisit";
+import Parking from "./Parking";
 import PlayerMarkers from "../PlayerMarkers";
 
 interface Props {
@@ -16,6 +20,10 @@ const FieldTypeToComponent: any = {
   [FieldType.Social]: Social,
   [FieldType.Chance]: Chance,
   [FieldType.Utility]: Utility,
+  [FieldType.Tax]: Tax,
+  [FieldType.Jail]: Jail,
+  [FieldType.JailVisit]: JailVisit,
+  [FieldType.Parking]: Parking,
 };
 
 const Field = ({ index }: Props) => {
