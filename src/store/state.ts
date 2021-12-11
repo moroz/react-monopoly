@@ -27,8 +27,12 @@ export class GameState {
   turn: number = 1;
   stage: GameStage = GameStage.Preparation;
 
-  constructor(players: Player[]) {
+  constructor(players: Player[] = []) {
     this.players = players;
+  }
+
+  get canStart() {
+    return this.players.length > 1;
   }
 
   static fromJSON(json: any) {

@@ -3,7 +3,8 @@ export enum ActionType {
   BuyProperty,
   AddPlayer,
   ResetGame,
-  StartGame
+  StartGame,
+  MovePlayer
 }
 
 export interface EndTurnAction {
@@ -29,9 +30,16 @@ export interface AddPlayerAction {
   color: string;
 }
 
+export interface MovePlayerAction {
+  type: ActionType.MovePlayer;
+  player: number;
+  fieldCount: number;
+}
+
 export type Action =
   | EndTurnAction
   | BuyPropertyAction
   | AddPlayerAction
+  | MovePlayerAction
   | StartGameAction
   | ResetGameAction;
