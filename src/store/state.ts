@@ -7,7 +7,7 @@ export enum MarkerType {
 export class Player {
   name: string;
   marker: MarkerType;
-  position: number = 1;
+  position: number = 0;
   balance: number = 1500;
 
   constructor(name: string, marker: MarkerType) {
