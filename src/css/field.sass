@@ -127,13 +127,28 @@
   img
     height: 3.2rem
 
+.tax
+  img
+    height: 4rem
+
+.jailvisit
+  .content
+    transform: none !important
+    padding: 0
+    display: grid
+    grid-template-columns: 2fr 3fr
+    grid-template-rows: 2fr 3fr
+  img
+    grid-column: 2
+    grid-row: 2
+
 .railway
   --padding-top: .5rem
 
   img
     height: 1.75rem
 
-.social, .chance, .railway, .utility
+.social, .chance, .railway, .utility, .tax
   --padding-top: .5rem
 
   .title
@@ -145,7 +160,7 @@
     align-items: center
     justify-content: center
 
-.social, .chance
+.social, .chance, .tax
   .title
     text-transform: uppercase
 

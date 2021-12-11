@@ -1,24 +1,33 @@
 import { Field, FieldType } from "../interfaces/fields";
-import Poké_Mart from "./Poké_Mart.png";
-import Poké_Center from "./Poké_Center.png";
+import Poké_Mart from "../components/Field/Utility/Poké_Mart.png";
+import Poké_Center from "../components/Field/Utility/Poké_Center.png";
+import Meowth from "../components/Field/Tax/Meowth.png";
+import JailVisit from "../components/Field/JailVisit/JailVisit.jpg";
 
 const FieldData: Record<number, Field> = {
-  "1": {
+  1: {
     title: "Side",
     price: 60,
     color: "#ac9393",
     type: FieldType.Property
   },
 
-  "2": {
+  2: {
     type: FieldType.Social
   },
 
-  "3": {
+  3: {
     title: "Istanbul",
     price: 60,
     color: "#ac9393",
     type: FieldType.Property
+  },
+
+  4: {
+    logo: Meowth,
+    price: 200,
+    color: "#c9f4dd",
+    type: FieldType.Tax
   },
 
   5: {
@@ -27,7 +36,7 @@ const FieldData: Record<number, Field> = {
     type: FieldType.Railway
   },
 
-  "6": {
+  6: {
     title: "Płowdiw",
     price: 100,
     color: "#d45500",
@@ -46,17 +55,23 @@ const FieldData: Record<number, Field> = {
     type: FieldType.Chance
   },
 
-  "8": {
+  8: {
     title: "Sofia",
     price: 120,
     color: "#d45500",
     type: FieldType.Property
   },
-  "9": {
+  9: {
     title: "Ruse",
     price: 100,
     color: "#d45500",
     type: FieldType.Property
+  },
+
+  10: {
+    logo: JailVisit,
+    color: "#c9f4dd",
+    type: FieldType.JailVisit
   },
 
   11: {
