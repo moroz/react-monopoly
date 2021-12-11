@@ -1,6 +1,7 @@
 export enum ActionType {
   EndTurn,
-  BuyProperty
+  BuyProperty,
+  AddPlayer
 }
 
 export interface EndTurnAction {
@@ -12,4 +13,10 @@ export interface BuyPropertyAction {
   index: number;
 }
 
-export type Action = EndTurnAction | BuyPropertyAction;
+export interface AddPlayerAction {
+  type: ActionType.AddPlayer;
+  name: string;
+  color: string;
+}
+
+export type Action = EndTurnAction | BuyPropertyAction | AddPlayerAction;
