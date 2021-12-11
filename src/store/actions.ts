@@ -1,11 +1,21 @@
 export enum ActionType {
   EndTurn,
   BuyProperty,
-  AddPlayer
+  AddPlayer,
+  ResetGame,
+  StartGame
 }
 
 export interface EndTurnAction {
   type: ActionType.EndTurn;
+}
+
+export interface ResetGameAction {
+  type: ActionType.ResetGame;
+}
+
+export interface StartGameAction {
+  type: ActionType.StartGame;
 }
 
 export interface BuyPropertyAction {
@@ -19,4 +29,9 @@ export interface AddPlayerAction {
   color: string;
 }
 
-export type Action = EndTurnAction | BuyPropertyAction | AddPlayerAction;
+export type Action =
+  | EndTurnAction
+  | BuyPropertyAction
+  | AddPlayerAction
+  | StartGameAction
+  | ResetGameAction;

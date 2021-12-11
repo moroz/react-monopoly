@@ -30,6 +30,17 @@ const gameStateReducer: Reducer<GameState, Action> = (
       };
     }
 
+    case ActionType.ResetGame: {
+      return initialState;
+    }
+
+    case ActionType.StartGame: {
+      return {
+        ...state,
+        stage: GameStage.Gameplay
+      };
+    }
+
     default:
       return state;
   }

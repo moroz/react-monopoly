@@ -11,8 +11,8 @@ export class Player {
 }
 
 export enum GameStage {
-  Preparation,
-  Gameplay
+  Preparation = "preparation",
+  Gameplay = "gameplay"
 }
 
 export class GameState {
