@@ -27,6 +27,7 @@ body
 
 .board-row
   grid-template-columns: 2fr repeat(9, 1fr) 2fr
+
   .field
     &:not(:last-child)
       border-right: $border
@@ -46,6 +47,7 @@ body
   display: grid
   grid-template-rows: repeat(9, 1fr)
   height: 100%
+
   .field
     &:not(:last-child)
       border-bottom: $border
@@ -53,6 +55,35 @@ body
   &.left
     .field
       border-right: $border
+      grid-template-columns: 8fr 2fr
+      grid-template-rows: initial
+
+      .title
+        flex: 1
+
+      .title, .index
+        writing-mode: vertical-rl
+
+      .property-color
+        border-left: $border
+        grid-column: 2
+
+      &:not(.is-property)
+        .content
+          height: 100%
+          display: flex
+          align-items: center
+
+      &.is-property .content
+        padding: 0 .25rem
+        display: flex
+        justify-content: center
+        grid-column: 1
+        grid-row: 1
+        align-items: center
+        flex-direction: row-reverse
+
+      .index
 
   &.right
     .field
@@ -69,3 +100,21 @@ body
   transform: translate(-50%, -50%) rotate(-45deg)
   font-size: calc(#{$board-size} * 1.412 / 11)
   text-transform: uppercase
+
+.field
+  position: relative
+
+  &.is-property
+    display: grid
+    grid-template-rows: 2fr 8fr
+
+    .content
+      position: relative
+  
+  &.is-wide
+
+  .property-color
+    background: var(--property-color)
+
+  .title
+
