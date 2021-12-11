@@ -71,40 +71,40 @@ const FieldData: Record<number, Field> = {
   },
 
   21: {
-    title: "Cracow",
-    price: 180,
-    color: "red",
+    title: "Tainan",
+    price: 240,
+    color: "#da2c5e",
     type: FieldType.Property
   },
   23: {
-    title: "Poznań",
-    price: 180,
-    color: "red",
+    title: "Taichung",
+    price: 220,
+    color: "#da2c5e",
     type: FieldType.Property
   },
   24: {
-    title: "Warsaw",
-    price: 200,
-    color: "red",
+    title: "Taipei",
+    price: 220,
+    color: "#da2c5e",
     type: FieldType.Property
   },
 
   26: {
-    title: "Cracow",
-    price: 180,
-    color: "red",
-    type: FieldType.Property
-  },
-  27: {
-    title: "Poznań",
-    price: 180,
-    color: "red",
+    title: "Hiroshima",
+    price: 260,
+    color: "#ffff00",
     type: FieldType.Property
   },
   29: {
-    title: "Warsaw",
-    price: 200,
-    color: "red",
+    title: "Kyoto",
+    price: 280,
+    color: "#ffff00",
+    type: FieldType.Property
+  },
+  27: {
+    title: "Tokyo",
+    price: 280,
+    color: "#ffff00",
     type: FieldType.Property
   },
 

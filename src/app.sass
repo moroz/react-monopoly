@@ -1,4 +1,4 @@
-$border: 3px solid var(--fg)
+$border: 2px solid var(--fg)
 $board-size: 95vmin
 $board-bg: lighten(#00cc60, 45%)
 
@@ -44,6 +44,15 @@ body
 .field
   overflow: hidden
 
+  &.is-property
+    .content
+      display: flex
+      flex-direction: column
+      align-items: center
+
+    .title
+      flex: 1
+
 .north
   .field
     border-bottom: $border
@@ -54,9 +63,6 @@ body
 
     &.is-property
       .content
-        display: flex
-        flex-direction: column
-        align-items: center
         transform: rotate(180deg)
 
       .title
@@ -122,6 +128,19 @@ body
 
 .west
   .field
+    &.is-property
+      .field-content
+        grid-template-rows: 1fr
+        grid-template-columns: 2fr 8fr
+        height: 100%
+
+      .content
+        writing-mode: vertical-rl
+        transform: rotate(180deg)
+        padding: 0 .25rem
+
+  .property-color
+    border-right: $border
 
 .board-middle
   position: relative
