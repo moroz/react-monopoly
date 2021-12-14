@@ -5,12 +5,20 @@ import { PawnType } from "../interfaces/pawns";
 import { Player } from "../interfaces/players";
 
 test("newly initialized contains all expected fields", () => {
-  const { players, currentPlayer, turn, stage } = new GameState();
+  const { players, propertyOwnership, currentPlayer, turn, stage } =
+    new GameState();
 
   expect(Array.isArray(players)).toBe(true);
   expect(stage).toEqual(GameStage.Preparation);
   expect(currentPlayer).toEqual(0);
   expect(turn).toEqual(1);
+  expect(typeof propertyOwnership).toEqual("object");
+
+  Object.entries(propertyOwnership).forEach(([key, value]) => {
+    expect(Number(key)).toBeGreaterThan(0);
+    expect(Number(key)).toBeLessThan(40);
+    expect(value).toBeNull();
+  });
 });
 
 test("AddPlayer action adds new player", () => {
