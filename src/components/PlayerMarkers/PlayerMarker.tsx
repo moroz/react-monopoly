@@ -17,6 +17,7 @@ export const PawnTypeToIcon: Record<PawnType, string> = {
 };
 
 const PlayerMarker: React.FC<Props> = ({ player }) => {
+  console.log({ player });
   return (
     <marker>
       <img src={PawnTypeToIcon[player.pawnType]} />

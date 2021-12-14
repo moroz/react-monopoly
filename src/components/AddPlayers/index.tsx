@@ -14,17 +14,15 @@ interface NewPlayerParams {
 
 const AddPlayers = () => {
   const [, dispatch] = useGameState();
-  const { watch, register, handleSubmit, formState } = useForm<NewPlayerParams>(
-    {
-      defaultValues: {
-        playerCount: "2",
-        players: [
-          { name: "", pawnType: PawnType.Dino },
-          { name: "", pawnType: PawnType.Car }
-        ]
-      }
+  const { watch, register, handleSubmit } = useForm<NewPlayerParams>({
+    defaultValues: {
+      playerCount: "2",
+      players: [
+        { name: "", pawnType: PawnType.Dino },
+        { name: "", pawnType: PawnType.Car }
+      ]
     }
-  );
+  });
 
   const addPlayer = useCallback(
     ({ players }: NewPlayerParams) => {
@@ -76,10 +74,7 @@ const AddPlayers = () => {
                       />
                     </div>
 
-                    <PawnPicker
-                      index={i}
-                      {...register(`players.${i}.pawnType`)}
-                    />
+                    <PawnPicker index={i} register={register} />
                   </div>
                 </div>
               ))}
