@@ -25,7 +25,7 @@ test("AddPlayer action adds new player", () => {
   };
 
   const { players } = reducer(initial, action);
-  expect(players.length).toEqual(1);
+  expect(players.length).toEqual(2);
 });
 
 describe("MovePlayer action", () => {
@@ -36,7 +36,7 @@ describe("MovePlayer action", () => {
       new Player({ name: "foobar", pawnType: PawnType.Dog }),
       new Player({ name: "dino", pawnType: PawnType.Dino })
     ]);
-    expect(initial.canStart).toBe(true);
+    expect(initial.isStarted).toBe(false);
     initial.stage = GameStage.Gameplay;
   });
 

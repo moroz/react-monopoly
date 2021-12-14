@@ -33,4 +33,8 @@ export class GameState {
     Object.assign(state, json);
     return state;
   }
+
+  get isStarted() {
+    return this.stage === GameStage.Gameplay;
+  }
 }
