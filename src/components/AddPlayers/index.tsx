@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import Layout from "../../Layout";
 import { ActionType } from "../../store/actions";
 import { useGameState, useGameStateReducer } from "../../store/context";
 import styles from "./AddPlayers.module.sass";
@@ -25,24 +26,25 @@ const AddPlayers = () => {
     [dispatch]
   );
 
-  const onSubmit = (data: any) => console.log(data);
-
   return (
-    <div className={styles.root}>
-      <form onSubmit={handleSubmit(addPlayer)}>
-        <div className="field">
-          <label>Name</label>
-          <input {...register("name")} />
-        </div>
+    <Layout>
+      <div className={styles.root}>
+        <form onSubmit={handleSubmit(addPlayer)}>
+          <h2>Add player</h2>
+          <div className="field">
+            <label>Name</label>
+            <input {...register("name")} />
+          </div>
 
-        <div className="field">
-          <label>Color</label>
-          <input placeholder="red" {...register("color")} />
-        </div>
+          <div className="field">
+            <label>Color</label>
+            <input placeholder="red" {...register("color")} />
+          </div>
 
-        <button>Add player</button>
-      </form>
-    </div>
+          <button>Add player</button>
+        </form>
+      </div>
+    </Layout>
   );
 };
 

@@ -13,10 +13,17 @@ function App() {
   return (
     <ReducerContext.Provider value={reducerTuple}>
       <div className={String(state.stage)}>
-        <Board />
-        {state.stage === GameStage.Preparation ? <AddPlayers /> : null}
         <StateDebugger />
-        {state.stage === GameStage.Gameplay ? <ControlPanel /> : null}
+        {state.stage === GameStage.Preparation ? (
+          <>
+            <AddPlayers />
+          </>
+        ) : (
+          <>
+            <Board />
+            <ControlPanel />
+          </>
+        )}
       </div>
     </ReducerContext.Provider>
   );
