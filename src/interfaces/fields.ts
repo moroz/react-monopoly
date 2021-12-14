@@ -17,5 +17,5 @@ export interface Field {
   name?: string;
   type: FieldType;
   color?: string;
-  logo?: string;
+  image?: string;
 }

@@ -6,7 +6,7 @@ import JailVisit from "../components/Field/JailVisit/JailVisit.jpg";
 
 const FieldData: Record<number, Field> = {
   1: {
-    title: "Side",
+    title: "Sosnowiec",
     price: 60,
     color: "#ac9393",
     type: FieldType.Property
@@ -17,14 +17,14 @@ const FieldData: Record<number, Field> = {
   },
 
   3: {
-    title: "Istanbul",
+    title: "Bydgoszcz",
     price: 60,
     color: "#ac9393",
     type: FieldType.Property
   },
 
   4: {
-    logo: Meowth,
+    image: Meowth,
     price: 200,
     color: "#c9f4dd",
     type: FieldType.Tax
@@ -69,7 +69,7 @@ const FieldData: Record<number, Field> = {
   },
 
   10: {
-    logo: JailVisit,
+    image: JailVisit,
     color: "#c9f4dd",
     type: FieldType.JailVisit
   },
@@ -89,7 +89,7 @@ const FieldData: Record<number, Field> = {
 
   13: {
     title: "Poké Center",
-    logo: Poké_Center,
+    image: Poké_Center,
     price: 150,
     color: "#ffff00",
     type: FieldType.Utility
@@ -170,7 +170,7 @@ const FieldData: Record<number, Field> = {
 
   28: {
     title: "Poké Mart",
-    logo: Poké_Mart,
+    image: Poké_Mart,
     price: 150,
     color: "#ffff00",
     type: FieldType.Utility

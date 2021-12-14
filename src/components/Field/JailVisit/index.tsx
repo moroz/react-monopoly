@@ -5,7 +5,10 @@ interface Props {
   data: Field;
 }
 
-const JailVisit: React.FC<Props> = ({ data: { logo, title }, index }) => {
+const JailVisit: React.FC<Props> = ({
+  data: { image: logo, title },
+  index
+}) => {
   return (
     <div className="content">
       <span className="index">{index}</span>

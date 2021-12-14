@@ -1,4 +1,5 @@
 import { Reducer } from "react";
+import FieldData from "../data/field_data";
 import { Player } from "../interfaces/players";
 import { Action, ActionType } from "./actions";
 import { GameStage, GameState } from "./state";
@@ -8,7 +9,7 @@ export const initialState = new GameState([]);
 const gameStateReducer: Reducer<GameState, Action> = (
   state = initialState,
   action
-) => {
+): GameState => {
   switch (action.type) {
     case ActionType.EndTurn: {
       const playerCount = state.players.length;
@@ -53,6 +54,39 @@ const gameStateReducer: Reducer<GameState, Action> = (
           return {
             ...p,
             position: newPosition
+          };
+        })
+      };
+    }
+
+    case ActionType.BuyProperty: {
+      const { propertyId, player } = action;
+      const property = FieldData[propertyId];
+      if (!property || !property.price) {
+        console.error("Invalid property ID");
+        return state;
+      }
+      if (!state.players[player]) {
+        console.error("Invalid player");
+        return state;
+      }
+      if (state.players[player].balance < property.price) {
+        console.error("Insufficient balance");
+        return state;
+      }
+
+      return {
+        ...state,
+        propertyOwnership: {
+          ...state.propertyOwnership,
+          [propertyId]: player
+        },
+        players: state.players.map((p, index) => {
+          if (index !== player) return p;
+
+          return {
+            ...p,
+            balance: p.balance - property.price!
           };
         })
       };

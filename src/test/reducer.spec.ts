@@ -4,6 +4,11 @@ import { GameStage, GameState } from "../store/state";
 import { PawnType } from "../interfaces/pawns";
 import { Player } from "../interfaces/players";
 
+const PLAYER_PARAMS = [
+  { name: "Mati", pawnType: PawnType.Dino },
+  { name: "Mori", pawnType: PawnType.Cat }
+];
+
 test("newly initialized contains all expected fields", () => {
   const { players, propertyOwnership, currentPlayer, turn, stage } =
     new GameState();
@@ -26,14 +31,11 @@ test("AddPlayer action adds new player", () => {
 
   const action: Action = {
     type: ActionType.SetPlayers,
-    players: [
-      { name: "Mati", pawnType: PawnType.Dino },
-      { name: "Mori", pawnType: PawnType.Car }
-    ]
+    players: PLAYER_PARAMS
   };
 
-  const { players } = reducer(initial, action);
-  expect(players.length).toEqual(2);
+  const state = reducer(initial, action);
+  expect(state.players.length).toEqual(2);
 });
 
 describe("MovePlayer action", () => {
@@ -44,7 +46,7 @@ describe("MovePlayer action", () => {
       new Player({ name: "foobar", pawnType: PawnType.Dog }),
       new Player({ name: "dino", pawnType: PawnType.Dino })
     ]);
-    expect(initial.isStarted).toBe(false);
+    expect(initial.isStarted()).toBe(false);
     initial.stage = GameStage.Gameplay;
   });
 
@@ -77,4 +79,14 @@ describe("MovePlayer action", () => {
     expect(actual.players[0].position).toEqual(5);
     expect(actual.players[0].balance).toEqual(1700);
   });
+});
+
+describe("BuyProperty action", () => {
+  let initialState;
+
+  beforeEach(() => {
+    initialState = new GameState(PLAYER_PARAMS);
+  });
+
+  test("when called with ");
 });

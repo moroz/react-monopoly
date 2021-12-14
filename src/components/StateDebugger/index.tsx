@@ -9,10 +9,6 @@ const StateDebugger = () => {
     dispatch({ type: ActionType.ResetGame });
   };
 
-  const onStart = () => {
-    dispatch({ type: ActionType.StartGame });
-  };
-
   return (
     <div className={styles.root}>
       <table>
@@ -51,7 +47,6 @@ const StateDebugger = () => {
       ))}
 
       <button onClick={onReset}>Reset</button>
-      <button onClick={onStart}>Start game</button>
     </div>
   );
 };

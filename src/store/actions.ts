@@ -1,4 +1,4 @@
-import { PlayerParams } from "./state";
+import { PlayerParams } from "../interfaces/players";
 
 export enum ActionType {
   EndTurn,
@@ -16,11 +16,6 @@ export interface ResetGameAction {
   type: ActionType.ResetGame;
 }
 
-export interface BuyPropertyAction {
-  type: ActionType.BuyProperty;
-  index: number;
-}
-
 export interface SetPlayersAction {
   type: ActionType.SetPlayers;
   players: PlayerParams[];
@@ -32,9 +27,15 @@ export interface MovePlayerAction {
   fieldCount: number;
 }
 
+export interface BuyProperty {
+  type: ActionType.BuyProperty;
+  player: number;
+  propertyId: number;
+}
+
 export type Action =
   | EndTurnAction
-  | BuyPropertyAction
   | SetPlayersAction
   | MovePlayerAction
+  | BuyProperty
   | ResetGameAction;

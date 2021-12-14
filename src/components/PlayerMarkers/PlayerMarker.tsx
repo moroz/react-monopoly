@@ -1,9 +1,10 @@
 import React from "react";
-import { PawnType, Player } from "../../store/state";
 import Dog from "./dog.png";
-import Car from "./car.png";
+import Car from "./cat.png";
 import Dino from "./dinosaur.png";
-import Fish from "./puffer-fish.png";
+import Fish from "./bee.png";
+import { Player } from "../../interfaces/players";
+import { PawnType } from "../../interfaces/pawns";
 
 interface Props {
   player: Player;
@@ -11,9 +12,9 @@ interface Props {
 
 export const PawnTypeToIcon: Record<PawnType, string> = {
   [PawnType.Dino]: Dino,
-  [PawnType.Car]: Car,
+  [PawnType.Cat]: Car,
   [PawnType.Dog]: Dog,
-  [PawnType.Fish]: Fish
+  [PawnType.Bee]: Fish
 };
 
 const PlayerMarker: React.FC<Props> = ({ player }) => {

@@ -1,6 +1,6 @@
 export enum PawnType {
   Dino = "dino",
-  Car = "car",
+  Cat = "car",
   Dog = "dog",
-  Fish = "fish"
+  Bee = "fish"
 }

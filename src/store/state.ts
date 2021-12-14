@@ -1,4 +1,4 @@
-import { Player } from "../interfaces/players";
+import { Player, PlayerParams } from "../interfaces/players";
 import FieldData from "../data/field_data";
 
 export enum GameStage {
@@ -13,8 +13,8 @@ export class GameState {
   stage: GameStage = GameStage.Preparation;
   propertyOwnership: Record<number, number>;
 
-  constructor(players: Player[] = []) {
-    this.players = players;
+  constructor(playerParams: PlayerParams[] = []) {
+    this.players = playerParams.map((attrs) => new Player(attrs));
 
     this.propertyOwnership = Object.keys(FieldData).reduce((acc, key) => {
       const property = FieldData[Number(key)];
@@ -34,7 +34,7 @@ export class GameState {
     return state;
   }
 
-  get isStarted() {
+  isStarted = () => {
     return this.stage === GameStage.Gameplay;
-  }
+  };
 }

@@ -1,9 +1,10 @@
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { PawnType } from "../../interfaces/pawns";
+import { PlayerParams } from "../../interfaces/players";
 import Layout from "../../Layout";
 import { ActionType } from "../../store/actions";
-import { useGameState, useGameStateReducer } from "../../store/context";
-import { PawnType, PlayerParams } from "../../store/state";
+import { useGameState } from "../../store/context";
 import styles from "./AddPlayers.module.sass";
 import PawnPicker from "./PawnPicker";
 
@@ -19,7 +20,7 @@ const AddPlayers = () => {
       playerCount: "2",
       players: [
         { name: "", pawnType: PawnType.Dino },
-        { name: "", pawnType: PawnType.Car }
+        { name: "", pawnType: PawnType.Cat }
       ]
     }
   });

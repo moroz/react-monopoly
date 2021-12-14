@@ -5,7 +5,10 @@ interface Props {
   data: Field;
 }
 
-const Utility: React.FC<Props> = ({ data: { logo, title, price }, index }) => {
+const Utility: React.FC<Props> = ({
+  data: { image: logo, title, price },
+  index
+}) => {
   return (
     <div className="content">
       <span className="title">{title}</span>
