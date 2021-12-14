@@ -1,6 +1,7 @@
 import { Reducer } from "react";
+import { Player } from "../interfaces/players";
 import { Action, ActionType } from "./actions";
-import { GameStage, GameState, PawnType, Player } from "./state";
+import { GameStage, GameState } from "./state";
 
 export const initialState = new GameState([]);
 

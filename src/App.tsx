@@ -5,7 +5,6 @@ import StateDebugger from "./components/StateDebugger";
 import { GameStage } from "./store/state";
 import AddPlayers from "./components/AddPlayers";
 import ControlPanel from "./components/ControlPanel";
-import PlayerMarkers from "./components/PlayerMarkers";
 
 function App() {
   const reducerTuple = useGameStateReducer();

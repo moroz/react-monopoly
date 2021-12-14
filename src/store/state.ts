@@ -1,26 +1,5 @@
-export enum PawnType {
-  Dino = "dino",
-  Car = "car",
-  Dog = "dog",
-  Fish = "fish"
-}
-
-export interface PlayerParams {
-  name: string;
-  pawnType: PawnType;
-}
-
-export class Player {
-  name: string;
-  pawnType: PawnType;
-  position: number = 0;
-  balance: number = 1500;
-
-  constructor({ name, pawnType }: PlayerParams) {
-    this.name = name;
-    this.pawnType = pawnType;
-  }
-}
+import { Player } from "../interfaces/players";
+import FieldData from "../data/field_data";
 
 export enum GameStage {
   Preparation = "preparation",
@@ -32,13 +11,21 @@ export class GameState {
   players: Player[];
   turn: number = 1;
   stage: GameStage = GameStage.Preparation;
+  propertyOwnership: Record<number, number>;
 
   constructor(players: Player[] = []) {
     this.players = players;
-  }
 
-  get canStart() {
-    return this.players.length > 1;
+    this.propertyOwnership = Object.keys(FieldData).reduce((acc, key) => {
+      const property = FieldData[Number(key)];
+      if (property.price) {
+        return {
+          ...acc,
+          [key]: null
+        };
+      }
+      return acc;
+    }, {});
   }
 
   static fromJSON(json: any) {

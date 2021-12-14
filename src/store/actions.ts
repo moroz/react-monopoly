@@ -21,7 +21,7 @@ export interface BuyPropertyAction {
   index: number;
 }
 
-export interface AddPlayerAction {
+export interface SetPlayersAction {
   type: ActionType.SetPlayers;
   players: PlayerParams[];
 }
@@ -35,7 +35,6 @@ export interface MovePlayerAction {
 export type Action =
   | EndTurnAction
   | BuyPropertyAction
-  | AddPlayerAction
+  | SetPlayersAction
   | MovePlayerAction
-  | StartGameAction
   | ResetGameAction;
