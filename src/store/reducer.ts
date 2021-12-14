@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 import { Action, ActionType } from "./actions";
-import { GameStage, GameState, MarkerType, Player } from "./state";
+import { GameStage, GameState, PawnType, Player } from "./state";
 
 export const initialState = new GameState([]);
 
@@ -20,13 +20,13 @@ const gameStateReducer: Reducer<GameState, Action> = (
       };
     }
 
-    case ActionType.AddPlayer: {
+    case ActionType.SetPlayers: {
       if (state.stage !== GameStage.Preparation) return state;
-      const { name, color } = action;
-      const player = new Player(name, color as MarkerType);
+      const { players } = action;
       return {
         ...state,
-        players: [...state.players, player]
+        players: players.map((params) => new Player(params)),
+        stage: GameStage.Gameplay
       };
     }
 
@@ -59,16 +59,6 @@ const gameStateReducer: Reducer<GameState, Action> = (
 
     case ActionType.ResetGame: {
       return initialState;
-    }
-
-    case ActionType.StartGame: {
-      if (state.canStart)
-        return {
-          ...state,
-          stage: GameStage.Gameplay
-        };
-
-      return state;
     }
 
     default:

@@ -5,6 +5,7 @@ import StateDebugger from "./components/StateDebugger";
 import { GameStage } from "./store/state";
 import AddPlayers from "./components/AddPlayers";
 import ControlPanel from "./components/ControlPanel";
+import PlayerMarkers from "./components/PlayerMarkers";
 
 function App() {
   const reducerTuple = useGameStateReducer();
@@ -14,7 +15,7 @@ function App() {
     <ReducerContext.Provider value={reducerTuple}>
       <div className={String(state.stage)}>
         <StateDebugger />
-        {state.stage === GameStage.Preparation ? (
+        {!state || state.stage === GameStage.Preparation ? (
           <>
             <AddPlayers />
           </>

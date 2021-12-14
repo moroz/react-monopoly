@@ -1,8 +1,14 @@
+@import "../../css/_vars"
+
 .root
   background: white
   padding: 2rem
   border: 1px solid black
   font-size: 1.2rem
+
+  fieldset
+    border: 0
+    padding: 0
 
   h2
     margin: 0 0 1rem
@@ -14,8 +20,83 @@
 
   input
     height: 2.5rem
+    width: 100%
 
   button
     width: 100%
     margin-top: 1rem
+    height: 2.5rem
+
+.grid
+  display: grid
+  grid-template-columns: 1fr auto
+  align-items: flex-start
+  gap: 1.5rem
+
+.playerCountGroup
+  legend
+    margin: 0 0 .5em
+    padding: 0
+    text-align: left
+
+.playerCountOptions
+  display: flex
+  gap: .5rem
+
+.playerCountOption
+  height: 3rem
+  display: flex
+  flex: 1
+  font-weight: bold
+  font-size: 1.5em
+
+  input[type="radio"]
+    & + label
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      border: 1px solid
+      cursor: pointer
+      border-radius: 5px
+
+    &:checked + label
+      background: black
+      border: 0
+      color: white
+
+.players
+  width: 400px
+  h3
+    margin: 0
+    font-size: 1.2rem
+
+.playerGroup
+  &:not(:first-child)
+    margin-top: 1rem
+
+.playerRow
+  display: flex
+  gap: 1rem
+
+.pawnPicker
+  display: flex
+  gap: .5rem
+  align-items: flex-end
+
+  .option
+
+  input[type="radio"]
+    & + label
+      padding: .5rem
+      line-height: 0
+      border: 1px solid
+      border-radius: 5px
+      cursor: pointer
+
+    &:checked + label
+      background: rgba(0,0,0,.2)
+
+  img
     height: 2.5rem

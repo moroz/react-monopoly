@@ -1,18 +1,24 @@
-export enum MarkerType {
+export enum PawnType {
   Dino = "dino",
   Car = "car",
-  Dog = "dog"
+  Dog = "dog",
+  Fish = "fish"
+}
+
+export interface PlayerParams {
+  name: string;
+  pawnType: PawnType;
 }
 
 export class Player {
   name: string;
-  marker: MarkerType;
+  pawnType: PawnType;
   position: number = 0;
   balance: number = 1500;
 
-  constructor(name: string, marker: MarkerType) {
+  constructor({ name, pawnType }: PlayerParams) {
     this.name = name;
-    this.marker = marker;
+    this.pawnType = pawnType;
   }
 }
 

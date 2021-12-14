@@ -1,23 +1,25 @@
 import React from "react";
-import { MarkerType, Player } from "../../store/state";
+import { PawnType, Player } from "../../store/state";
 import Dog from "./dog.png";
 import Car from "./car.png";
 import Dino from "./dinosaur.png";
+import Fish from "./puffer-fish.png";
 
 interface Props {
   player: Player;
 }
 
-const typeToIcon: Record<MarkerType, string> = {
-  [MarkerType.Dino]: Dino,
-  [MarkerType.Car]: Car,
-  [MarkerType.Dog]: Dog
+export const PawnTypeToIcon: Record<PawnType, string> = {
+  [PawnType.Dino]: Dino,
+  [PawnType.Car]: Car,
+  [PawnType.Dog]: Dog,
+  [PawnType.Fish]: Fish
 };
 
 const PlayerMarker: React.FC<Props> = ({ player }) => {
   return (
     <marker>
-      <img src={typeToIcon[player.marker]} />
+      <img src={PawnTypeToIcon[player.pawnType]} />
     </marker>
   );
 };

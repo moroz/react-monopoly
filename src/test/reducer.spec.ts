@@ -1,6 +1,6 @@
 import reducer from "../store/reducer";
 import { Action, ActionType } from "../store/actions";
-import { GameStage, GameState, MarkerType, Player } from "../store/state";
+import { GameStage, GameState, PawnType, Player } from "../store/state";
 
 test("newly initialized contains all expected fields", () => {
   const { players, currentPlayer, turn, stage } = new GameState();
@@ -15,7 +15,7 @@ test("AddPlayer action adds new player", () => {
   const initial = new GameState();
 
   const action: Action = {
-    type: ActionType.AddPlayer,
+    type: ActionType.SetPlayers,
     name: "foobar",
     color: "dog"
   };
@@ -29,8 +29,8 @@ describe("MovePlayer action", () => {
 
   beforeEach(() => {
     initial = new GameState([
-      new Player("foobar", MarkerType.Dog),
-      new Player("dino", MarkerType.Dino)
+      new Player("foobar", PawnType.Dog),
+      new Player("dino", PawnType.Dino)
     ]);
     expect(initial.canStart).toBe(true);
     initial.stage = GameStage.Gameplay;
