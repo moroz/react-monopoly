@@ -9,5 +9,8 @@ module.exports = {
         }
       }
     ]
+  },
+  moduleNameMapper: {
+    "\\.(png|jpg)$": "<rootDir>/src/imageStub.ts"
   }
 };
