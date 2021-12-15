@@ -5,7 +5,8 @@ export enum ActionType {
   BuyProperty,
   SetPlayers,
   ResetGame,
-  MovePlayer
+  MovePlayer,
+  RollDice
 }
 
 export interface EndTurnAction {
@@ -33,9 +34,14 @@ export interface BuyProperty {
   propertyId: number;
 }
 
+export interface RollDice {
+  type: ActionType.RollDice;
+}
+
 export type Action =
   | EndTurnAction
   | SetPlayersAction
   | MovePlayerAction
   | BuyProperty
+  | RollDice
   | ResetGameAction;

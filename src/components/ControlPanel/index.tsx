@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { ActionType } from "../../store/actions";
 import { useGameState } from "../../store/context";
+import { TurnStage } from "../../store/state";
 import styles from "./ControlPanel.module.sass";
 import { rollDice } from "./dices";
 
 const ControlPanel = () => {
-  const [{ turn, players, currentPlayer }, dispatch] = useGameState();
+  const [{ currentTurn, turn, players, currentPlayer }, dispatch] =
+    useGameState();
   const player = players[currentPlayer];
-  const [diceResult, setDiceResult] = useState<[number, number] | null>(null);
-  const [moved, setMoved] = useState(false);
+  const { diceResult, canRollAgain, turnStage } = currentTurn;
 
   const onRoll = () => {
-    setDiceResult(rollDice());
-    setMoved(false);
+    dispatch({ type: ActionType.RollDice });
   };
 
   const onMove = () => {
@@ -23,19 +23,13 @@ const ControlPanel = () => {
       player: currentPlayer,
       fieldCount: diceResult[0] + diceResult[1]
     });
-    setMoved(true);
   };
 
-  const canMoveAgain = diceResult && diceResult[0] === diceResult[1] && moved;
-  const canEndTurn = moved && !canMoveAgain;
-
   const onEndTurn = () => {
-    if (!canEndTurn) return;
+    if (currentTurn.turnStage !== TurnStage.NoActionsLeft) return;
     dispatch({
       type: ActionType.EndTurn
     });
-    setMoved(false);
-    setDiceResult(null);
   };
 
   return (
@@ -51,11 +45,13 @@ const ControlPanel = () => {
           <span>none</span>
         )}
       </p>
-      {diceResult && !moved ? <button onClick={onMove}>Move</button> : null}
-      {!diceResult || canMoveAgain ? (
+      {turnStage === TurnStage.AfterRoll ? (
+        <button onClick={onMove}>Move</button>
+      ) : null}
+      {!diceResult || canRollAgain ? (
         <button onClick={onRoll}>Roll dice</button>
       ) : null}
-      {!canMoveAgain && moved ? (
+      {turnStage === TurnStage.NoActionsLeft ? (
         <button onClick={onEndTurn}>Next player</button>
       ) : null}
     </div>

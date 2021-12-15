@@ -15,8 +15,8 @@ const PlayerMarkers: React.FC<Props> = ({ index }) => {
 
   return (
     <div className={styles.markers}>
-      {players.map((player) => (
-        <PlayerMarker player={player} />
+      {players.map((player, i) => (
+        <PlayerMarker player={player} key={i} />
       ))}
     </div>
   );

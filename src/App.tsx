@@ -5,6 +5,7 @@ import StateDebugger from "./components/StateDebugger";
 import { GameStage } from "./store/state";
 import AddPlayers from "./components/AddPlayers";
 import ControlPanel from "./components/ControlPanel";
+import GameModals from "./components/GameModals";
 
 function App() {
   const reducerTuple = useGameStateReducer();
@@ -24,6 +25,7 @@ function App() {
             <ControlPanel />
           </>
         )}
+        <GameModals />
       </div>
     </ReducerContext.Provider>
   );

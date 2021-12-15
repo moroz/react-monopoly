@@ -1,3 +1,4 @@
+import React from "react";
 import { ActionType } from "../../store/actions";
 import { useGameState } from "../../store/context";
 import styles from "./StateDebugger.module.sass";
@@ -32,8 +33,8 @@ const StateDebugger = () => {
         </tbody>
       </table>
 
-      {state.players.map((player) => (
-        <>
+      {state.players.map((player, index) => (
+        <React.Fragment key={index}>
           <h3>{player.name}</h3>
           <table>
             <tbody>
@@ -41,9 +42,13 @@ const StateDebugger = () => {
                 <th>Balance:</th>
                 <td>${player.balance}</td>
               </tr>
+              <tr>
+                <th>Position:</th>
+                <td>{player.position}</td>
+              </tr>
             </tbody>
           </table>
-        </>
+        </React.Fragment>
       ))}
 
       <button onClick={onReset}>Reset</button>

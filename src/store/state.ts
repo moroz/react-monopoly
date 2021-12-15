@@ -6,15 +6,36 @@ export enum GameStage {
   Gameplay = "gameplay"
 }
 
+export enum TurnStage {
+  BeforeRoll,
+  AfterRoll,
+  BuyPropertyDialog,
+  NoActionsLeft,
+  PayRentDialog
+}
+
+export type DiceRollResult = [number, number];
+
 export class GameState {
   currentPlayer: number = 0;
   players: Player[];
   turn: number = 1;
   stage: GameStage = GameStage.Preparation;
   propertyOwnership: Record<number, number>;
+  currentTurn: {
+    turnStage: TurnStage;
+    diceResult: DiceRollResult | null;
+    canRollAgain: boolean;
+  };
 
   constructor(playerParams: PlayerParams[] = []) {
     this.players = playerParams.map((attrs) => new Player(attrs));
+
+    this.currentTurn = {
+      turnStage: TurnStage.BeforeRoll,
+      diceResult: null,
+      canRollAgain: false
+    };
 
     this.propertyOwnership = Object.keys(FieldData).reduce((acc, key) => {
       const property = FieldData[Number(key)];

@@ -1,8 +1,10 @@
 import { Reducer } from "react";
+import { rollDice } from "../components/ControlPanel/dices";
 import FieldData from "../data/field_data";
 import { Player } from "../interfaces/players";
 import { Action, ActionType } from "./actions";
-import { GameStage, GameState } from "./state";
+import { getTurnStageByState } from "./helpers";
+import { GameStage, GameState, TurnStage } from "./state";
 
 export const initialState = new GameState([]);
 
@@ -18,7 +20,12 @@ const gameStateReducer: Reducer<GameState, Action> = (
       return {
         ...state,
         currentPlayer: nextIndex,
-        turn: nextIndex > 0 ? state.turn : state.turn + 1
+        turn: nextIndex > 0 ? state.turn : state.turn + 1,
+        currentTurn: {
+          diceResult: null,
+          canRollAgain: false,
+          turnStage: TurnStage.BeforeRoll
+        }
       };
     }
 
@@ -36,7 +43,8 @@ const gameStateReducer: Reducer<GameState, Action> = (
       const { fieldCount, player } = action;
       if (fieldCount < 1 || fieldCount > 12) return state;
       if (player < 0 || player > state.players.length - 1) return state;
-      return {
+
+      const newState = {
         ...state,
         players: state.players.map((p, index) => {
           if (index !== player) return p;
@@ -56,6 +64,14 @@ const gameStateReducer: Reducer<GameState, Action> = (
             position: newPosition
           };
         })
+      };
+
+      return {
+        ...newState,
+        currentTurn: {
+          ...newState.currentTurn,
+          turnStage: getTurnStageByState(newState)
+        }
       };
     }
 
@@ -89,6 +105,19 @@ const gameStateReducer: Reducer<GameState, Action> = (
             balance: p.balance - property.price!
           };
         })
+      };
+    }
+
+    case ActionType.RollDice: {
+      const [left, right] = rollDice();
+
+      return {
+        ...state,
+        currentTurn: {
+          diceResult: [left, right],
+          turnStage: TurnStage.AfterRoll,
+          canRollAgain: left === right
+        }
       };
     }
 
