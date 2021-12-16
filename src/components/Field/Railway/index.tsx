@@ -1,10 +1,10 @@
 import React from "react";
-import { Field } from "../../../interfaces/fields";
-import Logo from "./pkp.svg";
+import { GenericField } from "../../../interfaces/fields";
+import Logo from "../../../images/train.svg";
 
 interface Props {
   index: number;
-  data: Field;
+  data: GenericField;
 }
 
 const Railway: React.FunctionComponent<Props> = ({

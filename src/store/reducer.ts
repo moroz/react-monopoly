@@ -90,12 +90,22 @@ const gameStateReducer: Reducer<GameState, Action> = (
         console.error("Insufficient balance");
         return state;
       }
+      if (state.propertyOwnership[propertyId] !== null) {
+        console.error("Property already has an owner");
+        return state;
+      }
 
       return {
         ...state,
         propertyOwnership: {
           ...state.propertyOwnership,
           [propertyId]: player
+        },
+        currentTurn: {
+          ...state.currentTurn,
+          turnStage: state.currentTurn.canRollAgain
+            ? TurnStage.BeforeRoll
+            : TurnStage.NoActionsLeft
         },
         players: state.players.map((p, index) => {
           if (index !== player) return p;

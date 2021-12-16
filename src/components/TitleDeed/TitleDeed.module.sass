@@ -3,16 +3,19 @@
 
 $deed-card-ratio: math.div(291, 205)
 
-$deed-card-width: 220px
+$deed-card-width: 15rem
 $deed-card-height: $deed-card-ratio * $deed-card-width
 
 .root
   width: $deed-card-width
   height: $deed-card-height
   border: 1px solid
+  font-size: 1rem
   margin: 10px
   padding: 10px
   +decorative
+  display: flex
+  flex-direction: column
 
   header
     background: var(--property-color)
@@ -28,6 +31,18 @@ $deed-card-height: $deed-card-ratio * $deed-card-width
       margin: .1em 0 0
       font-size: 1.5rem
 
+  hr
+    width: 100%
+    height: 1px
+    border: 0
+    background: currentColor
+
+  main
+    flex: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+
 .baseRent
   text-align: center
   margin: .5rem 0
@@ -40,3 +55,16 @@ $deed-card-height: $deed-card-ratio * $deed-card-width
 
   tbody td
     text-align: right
+
+.railway
+  header
+    border: 0
+  
+    h3
+      border-top: 2px solid
+      border-bottom: 2px solid
+      margin-top: .5rem
+      font-size: 1.25rem
+
+    img
+      height: 4rem

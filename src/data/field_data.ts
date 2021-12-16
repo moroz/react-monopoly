@@ -209,7 +209,6 @@ const FieldData: Record<number, Field> = {
     title: "Poké Mart",
     image: Poké_Mart,
     price: 150,
-    color: "#ffff00",
     type: FieldType.Utility
   },
 
