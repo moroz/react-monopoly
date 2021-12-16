@@ -48,6 +48,19 @@ const TitleDeed: React.FC<Props> = ({ field }) => {
                 </tr>
               </tbody>
             </table>
+            <hr />
+            <table className={styles.rentTable}>
+              <tbody>
+                <tr>
+                  <th>Houses cost</th>
+                  <td>${field.housePrice}</td>
+                </tr>
+                <tr>
+                  <th>Mortgage Value</th>
+                  <td>${field.price! / 2}</td>
+                </tr>
+              </tbody>
+            </table>
           </>
         ) : null}
       </main>

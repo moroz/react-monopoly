@@ -51,7 +51,8 @@ const FieldData: Record<number, Field> = {
     price: 100,
     color: countryColors[1],
     type: FieldType.Property,
-    rents: [6, 30, 90, 270, 400, 550]
+    rents: [6, 30, 90, 270, 400, 550],
+    housePrice: 50
   },
 
   7: {
@@ -70,14 +71,17 @@ const FieldData: Record<number, Field> = {
     title: "Sofia",
     price: 120,
     color: countryColors[1],
-    type: FieldType.Property
+    type: FieldType.Property,
+    rents: [8, 40, 100, 300, 450, 600],
+    housePrice: 60
   },
   9: {
     title: "Ruse",
     price: 100,
     color: countryColors[1],
     type: FieldType.Property,
-    rents: [6, 30, 90, 270, 400, 550]
+    rents: [6, 30, 90, 270, 400, 550],
+    housePrice: 50
   },
 
   10: {
@@ -90,13 +94,15 @@ const FieldData: Record<number, Field> = {
     price: 140,
     color: countryColors[2],
     type: FieldType.Property,
-    rents: [14, 70, 200, 550, 750, 950]
+    rents: [14, 70, 200, 550, 750, 950],
+    housePrice: 100
   },
   12: {
     title: "Kharkiv",
     price: 140,
     color: countryColors[2],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 100
   },
 
   13: {
@@ -110,7 +116,8 @@ const FieldData: Record<number, Field> = {
     title: "Kyiv",
     price: 160,
     color: countryColors[2],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 100
   },
 
   15: {

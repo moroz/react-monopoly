@@ -19,6 +19,7 @@ export interface Field {
   color?: string;
   image?: string;
   rents?: PropertyRentMapping;
+  housePrice?: number;
 }
 
 // rent, with 1/2/3/4 houses, with hotel

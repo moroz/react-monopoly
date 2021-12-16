@@ -4,6 +4,7 @@
   margin: 0 auto
   border: $border
   background: $board-bg
+  transform: rotate(-90deg)
 
 .board-fields, .board-row, .board-center
   display: grid
@@ -32,7 +33,7 @@
   position: absolute
   top: 50%
   left: 50%
-  transform: translate(-50%, -50%) rotate(-45deg)
+  transform: translate(-50%, -50%) rotate(45deg)
   font-family: $font-decorative
   font-size: calc(#{$board-size} * 1.412 / 12)
   font-weight: $title-font-weight
