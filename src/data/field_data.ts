@@ -20,7 +20,9 @@ const FieldData: Record<number, Field> = {
     title: "Sosnowiec",
     price: 60,
     color: countryColors[0],
-    type: FieldType.Property
+    type: FieldType.Property,
+    rents: [2, 10, 30, 90, 160, 250],
+    housePrice: 50
   },
 
   2: {
@@ -31,7 +33,9 @@ const FieldData: Record<number, Field> = {
     title: "Bydgoszcz",
     price: 60,
     color: countryColors[0],
-    type: FieldType.Property
+    type: FieldType.Property,
+    rents: [4, 20, 60, 180, 320, 450],
+    housePrice: 50
   },
 
   4: {
@@ -102,7 +106,8 @@ const FieldData: Record<number, Field> = {
     price: 140,
     color: countryColors[2],
     type: FieldType.Property,
-    housePrice: 100
+    housePrice: 100,
+    rents: [10, 50, 150, 450, 625, 750]
   },
 
   13: {
@@ -117,7 +122,8 @@ const FieldData: Record<number, Field> = {
     price: 160,
     color: countryColors[2],
     type: FieldType.Property,
-    housePrice: 100
+    housePrice: 100,
+    rents: [12, 60, 180, 500, 700, 900]
   },
 
   15: {
@@ -130,7 +136,9 @@ const FieldData: Record<number, Field> = {
     title: "Cracow",
     price: 180,
     color: countryColors[3],
-    type: FieldType.Property
+    type: FieldType.Property,
+    rents: [14, 70, 200, 550, 750, 950],
+    housePrice: 100
   },
   17: {
     type: FieldType.Social
@@ -139,13 +147,17 @@ const FieldData: Record<number, Field> = {
     title: "Poznań",
     price: 180,
     color: countryColors[3],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 100,
+    rents: [14, 70, 200, 550, 750, 950]
   },
   19: {
     title: "Warsaw",
     price: 200,
     color: countryColors[3],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 100,
+    rents: [16, 80, 220, 600, 800, 1000]
   },
 
   21: {
@@ -180,13 +192,17 @@ const FieldData: Record<number, Field> = {
     title: "Hiroshima",
     price: 260,
     color: countryColors[5],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 150,
+    rents: [12, 60, 180, 500, 700, 900]
   },
   29: {
     title: "Kyoto",
     price: 280,
     color: countryColors[5],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 150,
+    rents: [10, 50, 150, 450, 625, 750]
   },
 
   28: {
@@ -201,29 +217,40 @@ const FieldData: Record<number, Field> = {
     title: "Tokyo",
     price: 280,
     color: countryColors[5],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 150,
+    rents: [14, 70, 200, 550, 750, 950]
   },
 
   31: {
     title: "Delhi",
     price: 300,
     color: countryColors[6],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 200,
+    rents: [16, 80, 220, 600, 800, 1000]
   },
+
   32: {
-    title: "Bangalore",
+    title: "Kolkatta",
     price: 320,
     color: countryColors[6],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 200,
+    rents: [28, 150, 450, 1000, 1200, 1400]
   },
+
   33: {
     type: FieldType.Social
   },
+
   34: {
-    title: "Darjeeling",
+    title: "Bangalore",
     price: 300,
     color: countryColors[6],
-    type: FieldType.Property
+    type: FieldType.Property,
+    housePrice: 200,
+    rents: [26, 130, 390, 900, 1100, 1275]
   },
 
   35: {
@@ -236,13 +263,18 @@ const FieldData: Record<number, Field> = {
     title: "Cape Town",
     price: 350,
     color: countryColors[7],
-    type: FieldType.Property
+    type: FieldType.Property,
+    rents: [35, 175, 500, 1100, 1300, 1500],
+    housePrice: 200
   },
+
   39: {
     title: "Pretoria",
     price: 400,
     color: countryColors[7],
-    type: FieldType.Property
+    type: FieldType.Property,
+    rents: [50, 200, 600, 1400, 1700, 2000],
+    housePrice: 200
   },
 
   "40": {
