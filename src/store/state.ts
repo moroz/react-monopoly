@@ -1,5 +1,6 @@
 import { Player, PlayerParams } from "../interfaces/players";
 import FieldData from "../data/field_data";
+import { Property } from "../interfaces/fields";
 
 export enum GameStage {
   Preparation = "preparation",
@@ -39,7 +40,7 @@ export class GameState {
     };
 
     this.propertyOwnership = Object.keys(FieldData).reduce((acc, key) => {
-      const property = FieldData[Number(key)];
+      const property = FieldData[Number(key)] as Property;
       if (property.price) {
         return {
           ...acc,

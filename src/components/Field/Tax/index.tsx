@@ -1,8 +1,8 @@
-import { GenericField } from "../../../interfaces/fields";
+import { TaxField } from "../../../interfaces/fields";
 
 interface Props {
   index: number;
-  data: GenericField;
+  data: TaxField;
 }
 
 const Tax: React.FC<Props> = ({
@@ -11,11 +11,7 @@ const Tax: React.FC<Props> = ({
 }) => {
   return (
     <div className="content">
-      <span className="title">
-        Income
-        <br />
-        Tax
-      </span>
+      <span className="title">{title}</span>
       <div className="img-wrapper">
         <img src={logo} />
       </div>

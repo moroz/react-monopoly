@@ -23,26 +23,28 @@ const FieldTypeToComponent: any = {
   [FieldType.Tax]: Tax,
   [FieldType.Jail]: Jail,
   [FieldType.JailVisit]: JailVisit,
-  [FieldType.Parking]: Parking,
+  [FieldType.Parking]: Parking
 };
 
 const Field = ({ index }: Props) => {
-  const fieldData = data?.[index] || {};
-  const { type, title, color, price } = fieldData;
+  const fieldData = (data?.[index] as any) || {};
+  const { type, title } = fieldData;
   const longTitle = title?.length && title.length > 10;
-  const CustomRenderer = FieldTypeToComponent[type];
+  const CustomRenderer = FieldTypeToComponent[String(type)];
 
   return (
     <div
       className={clsx("field", type, {
         "is-wide": index % 10 === 0,
         "is-property": type === FieldType.Property,
-        "is-long": longTitle,
+        "is-long": longTitle
       })}
       style={
-        {
-          "--property-color": color,
-        } as any
+        type === FieldType.Property
+          ? ({
+              "--property-color": fieldData?.color
+            } as any)
+          : undefined
       }
     >
       <div className="field-content">
@@ -54,7 +56,9 @@ const Field = ({ index }: Props) => {
         ) : (
           <div className="content">
             {title ? <span className="title">{title}</span> : null}
-            {price ? <span className="price">${price}</span> : null}
+            {fieldData?.price ? (
+              <span className="price">${fieldData.price}</span>
+            ) : null}
             <span className="index">{index}</span>
           </div>
         )}
