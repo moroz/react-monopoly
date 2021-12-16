@@ -1,0 +1,41 @@
+@use "sass:math"
+@import "../../css/_vars"
+
+$deed-card-ratio: math.div(291, 205)
+
+$deed-card-width: 205px
+$deed-card-height: $deed-card-ratio * $deed-card-width
+
+.root
+  width: $deed-card-width
+  height: $deed-card-height
+  border: 1px solid
+  margin: 10px
+  padding: 10px
+
+  header
+    background: var(--property-color)
+    text-align: center
+    font-family: $font-decorative
+    font-weight: bold
+    text-transform: uppercase
+    padding: .5em
+    border: 2px solid
+    margin-bottom: .5rem
+
+    h3
+      margin: .1em 0 0
+      font-size: 1.5rem
+
+.baseRent
+  text-align: center
+  margin: .5rem 0
+
+.rentTable
+  text-align: left
+  width: 100%
+  th
+    font-weight: normal
+
+  tbody td
+    text-align: right

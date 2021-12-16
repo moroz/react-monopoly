@@ -4,6 +4,7 @@ import BuyPropertyDialog from "./BuyPropertyDialog";
 
 const GameModals = () => {
   const [{ currentTurn }] = useGameState();
+
   switch (currentTurn.turnStage) {
     case TurnStage.BuyPropertyDialog: {
       return <BuyPropertyDialog />;
