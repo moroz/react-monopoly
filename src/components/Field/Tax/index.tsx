@@ -1,8 +1,8 @@
-import { Field } from "../../../interfaces/fields";
+import { GenericField } from "../../../interfaces/fields";
 
 interface Props {
   index: number;
-  data: Field;
+  data: GenericField;
 }
 
 const Tax: React.FC<Props> = ({

@@ -6,15 +6,17 @@ export enum ActionType {
   SetPlayers,
   ResetGame,
   MovePlayer,
-  RollDice
+  RollDice,
+  Dismiss
 }
 
-export interface EndTurnAction {
-  type: ActionType.EndTurn;
-}
+export type AtomicActionType =
+  | ActionType.EndTurn
+  | ActionType.ResetGame
+  | ActionType.Dismiss;
 
-export interface ResetGameAction {
-  type: ActionType.ResetGame;
+export interface AtomicAction {
+  type: AtomicActionType;
 }
 
 export interface SetPlayersAction {
@@ -39,9 +41,8 @@ export interface RollDice {
 }
 
 export type Action =
-  | EndTurnAction
   | SetPlayersAction
   | MovePlayerAction
   | BuyProperty
   | RollDice
-  | ResetGameAction;
+  | AtomicAction;

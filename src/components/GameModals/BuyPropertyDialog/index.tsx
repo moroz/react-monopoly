@@ -21,6 +21,10 @@ const BuyPropertyDialog = () => {
     });
   };
 
+  const onDismiss = () => {
+    dispatch({ type: ActionType.Dismiss });
+  };
+
   return (
     <app-modal>
       <TitleDeed field={currentProperty} />
@@ -32,12 +36,16 @@ const BuyPropertyDialog = () => {
             <button className="button" onClick={onBuy}>
               Buy for ${currentProperty.price}
             </button>
-            <button className="button">Nope</button>
+            <button className="button" onClick={onDismiss}>
+              Nope
+            </button>
           </>
         ) : (
           <>
             <p>You do not have enough money to buy this property.</p>
-            <button className="button">Dismiss</button>
+            <button className="button" onClick={onDismiss}>
+              Dismiss
+            </button>
           </>
         )}
       </div>

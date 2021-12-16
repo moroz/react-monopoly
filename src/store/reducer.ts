@@ -1,6 +1,7 @@
 import { Reducer } from "react";
 import { rollDice } from "../components/ControlPanel/dices";
 import FieldData from "../data/field_data";
+import { Property } from "../interfaces/fields";
 import { Player } from "../interfaces/players";
 import { Action, ActionType } from "./actions";
 import { getTurnStageByState } from "./helpers";
@@ -77,7 +78,7 @@ const gameStateReducer: Reducer<GameState, Action> = (
 
     case ActionType.BuyProperty: {
       const { propertyId, player } = action;
-      const property = FieldData[propertyId];
+      const property = FieldData[propertyId] as Property;
       if (!property || !property.price) {
         console.error("Invalid property ID");
         return state;
@@ -127,6 +128,18 @@ const gameStateReducer: Reducer<GameState, Action> = (
           diceResult: [left, right],
           turnStage: TurnStage.AfterRoll,
           canRollAgain: left === right
+        }
+      };
+    }
+
+    case ActionType.Dismiss: {
+      return {
+        ...state,
+        currentTurn: {
+          ...state.currentTurn,
+          turnStage: state.currentTurn.canRollAgain
+            ? TurnStage.BeforeRoll
+            : TurnStage.NoActionsLeft
         }
       };
     }
