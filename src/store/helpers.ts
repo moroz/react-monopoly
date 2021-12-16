@@ -4,6 +4,7 @@ import { GameState, TurnStage } from "./state";
 
 export function getTurnStageByState(state: GameState) {
   const currentPosition = state.players[state.currentPlayer].position;
+  console.log({ currentPosition });
   const currentField = FieldData[currentPosition];
   const owner = state.propertyOwnership[currentPosition];
 

@@ -1,6 +1,7 @@
 import { useGameState } from "../../store/context";
 import { TurnStage } from "../../store/state";
 import BuyPropertyDialog from "./BuyPropertyDialog";
+import PayRentDialog from "./PayRentDialog";
 
 const GameModals = () => {
   const [{ currentTurn }] = useGameState();
@@ -8,6 +9,10 @@ const GameModals = () => {
   switch (currentTurn.turnStage) {
     case TurnStage.BuyPropertyDialog: {
       return <BuyPropertyDialog />;
+    }
+
+    case TurnStage.PayRentDialog: {
+      return <PayRentDialog />;
     }
 
     default:

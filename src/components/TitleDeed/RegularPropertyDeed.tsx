@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import { COUNTRY_COLORS } from "../../data/field_data";
 import { RegularProperty } from "../../interfaces/fields";
 import styles from "./TitleDeed.module.sass";
 
@@ -8,9 +9,13 @@ interface Props {
 }
 
 const RegularPropertyDeed: React.FC<Props> = ({ field }) => {
+  const light =
+    field.color === COUNTRY_COLORS[0] || field.color === COUNTRY_COLORS[7];
   return (
     <div
-      className={clsx(styles.root, styles.regularProperty)}
+      className={clsx(styles.root, styles.regularProperty, {
+        [styles.light]: light
+      })}
       style={
         {
           "--property-color": field.color

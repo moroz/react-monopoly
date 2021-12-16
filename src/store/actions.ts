@@ -7,12 +7,14 @@ export enum ActionType {
   ResetGame,
   MovePlayer,
   RollDice,
-  Dismiss
+  Dismiss,
+  TransferMoney
 }
 
 export type AtomicActionType =
   | ActionType.EndTurn
   | ActionType.ResetGame
+  | ActionType.RollDice
   | ActionType.Dismiss;
 
 export interface AtomicAction {
@@ -36,13 +38,16 @@ export interface BuyProperty {
   propertyId: number;
 }
 
-export interface RollDice {
-  type: ActionType.RollDice;
+export interface TransferMoney {
+  type: ActionType.TransferMoney;
+  from: number;
+  to: number;
+  amount: number;
 }
 
 export type Action =
   | SetPlayersAction
   | MovePlayerAction
   | BuyProperty
-  | RollDice
+  | TransferMoney
   | AtomicAction;

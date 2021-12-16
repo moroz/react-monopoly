@@ -9,6 +9,11 @@ import { GameStage, GameState, TurnStage } from "./state";
 
 export const initialState = new GameState([]);
 
+function nextTurnStage(state: GameState) {
+  if (state.currentTurn.canRollAgain) return TurnStage.BeforeRoll;
+  return TurnStage.NoActionsLeft;
+}
+
 const gameStateReducer: Reducer<GameState, Action> = (
   state = initialState,
   action
@@ -104,9 +109,7 @@ const gameStateReducer: Reducer<GameState, Action> = (
         },
         currentTurn: {
           ...state.currentTurn,
-          turnStage: state.currentTurn.canRollAgain
-            ? TurnStage.BeforeRoll
-            : TurnStage.NoActionsLeft
+          turnStage: nextTurnStage(state)
         },
         players: state.players.map((p, index) => {
           if (index !== player) return p;
@@ -137,10 +140,27 @@ const gameStateReducer: Reducer<GameState, Action> = (
         ...state,
         currentTurn: {
           ...state.currentTurn,
-          turnStage: state.currentTurn.canRollAgain
-            ? TurnStage.BeforeRoll
-            : TurnStage.NoActionsLeft
+          turnStage: nextTurnStage(state)
         }
+      };
+    }
+
+    case ActionType.TransferMoney: {
+      return {
+        ...state,
+        currentTurn: {
+          ...state.currentTurn,
+          turnStage: nextTurnStage(state)
+        },
+        players: state.players.map((player, i) => {
+          if (i === action.from) {
+            return { ...player, balance: player.balance - action.amount };
+          }
+          if (i === action.to) {
+            return { ...player, balance: player.balance + action.amount };
+          }
+          return player;
+        })
       };
     }
 

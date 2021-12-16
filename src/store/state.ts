@@ -15,13 +15,14 @@ export enum TurnStage {
 }
 
 export type DiceRollResult = [number, number];
+export type PropertyOwnership = Record<number, number>;
 
 export class GameState {
   currentPlayer: number = 0;
   players: Player[];
   turn: number = 1;
   stage: GameStage = GameStage.Preparation;
-  propertyOwnership: Record<number, number>;
+  propertyOwnership: PropertyOwnership;
   currentTurn: {
     turnStage: TurnStage;
     diceResult: DiceRollResult | null;
