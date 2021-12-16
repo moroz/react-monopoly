@@ -43,9 +43,16 @@ $deed-card-height: $deed-card-ratio * $deed-card-width
     flex-direction: column
     justify-content: center
 
-.baseRent
-  text-align: center
-  margin: .5rem 0
+    p
+      margin: 0
+      text-indent: 1.5em
+
+      &:not(:last-child)
+        margin-bottom: 1rem
+
+.regularProperty
+  main
+    font-size: .9em
 
 .rentTable
   text-align: left

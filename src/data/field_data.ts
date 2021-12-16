@@ -160,6 +160,10 @@ const FieldData: Record<number, Field> = {
     rents: [16, 80, 220, 600, 800, 1000]
   },
 
+  20: {
+    type: FieldType.Parking
+  },
+
   21: {
     title: "Tainan",
     price: 240,
@@ -265,6 +269,11 @@ const FieldData: Record<number, Field> = {
     type: FieldType.Property,
     rents: [35, 175, 500, 1100, 1300, 1500],
     housePrice: 200
+  },
+
+  38: {
+    type: FieldType.Tax,
+    price: 100
   },
 
   39: {

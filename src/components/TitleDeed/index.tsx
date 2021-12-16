@@ -1,10 +1,11 @@
 import React from "react";
-import { Field, FieldType } from "../../interfaces/fields";
+import { FieldType, Property } from "../../interfaces/fields";
 import RailwayDeed from "./RailwayDeed";
 import RegularPropertyDeed from "./RegularPropertyDeed";
+import UtilityDeed from "./UtilityDeed";
 
 interface Props {
-  field: Field;
+  field: Property;
 }
 
 const TitleDeed: React.FC<Props> = ({ field }) => {
@@ -15,6 +16,10 @@ const TitleDeed: React.FC<Props> = ({ field }) => {
 
     case FieldType.Railway: {
       return <RailwayDeed field={field} />;
+    }
+
+    case FieldType.Utility: {
+      return <UtilityDeed field={field} />;
     }
 
     default:

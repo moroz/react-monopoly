@@ -1,16 +1,16 @@
+import clsx from "clsx";
 import React from "react";
-import { Field } from "../../interfaces/fields";
+import { RegularProperty } from "../../interfaces/fields";
 import styles from "./TitleDeed.module.sass";
 
 interface Props {
-  field: Field;
+  field: RegularProperty;
 }
 
 const RegularPropertyDeed: React.FC<Props> = ({ field }) => {
-  console.log(field);
   return (
     <div
-      className={styles.root}
+      className={clsx(styles.root, styles.regularProperty)}
       style={
         {
           "--property-color": field.color

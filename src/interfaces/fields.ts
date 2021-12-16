@@ -21,11 +21,22 @@ export type RegularPropertyRents = [
   number
 ];
 
+export type PropertyType =
+  | FieldType.Property
+  | FieldType.Railway
+  | FieldType.Utility;
+
 export interface GenericField {
   title?: string;
-  price?: number;
-  type: Omit<FieldType, "property" | "railway">;
+  type: Omit<FieldType, PropertyType | FieldType.Tax>;
   image?: string;
+}
+
+export interface TaxField {
+  title?: string;
+  image: string;
+  type: FieldType.Tax;
+  price: number;
 }
 
 export interface RegularProperty {
@@ -43,4 +54,12 @@ export interface RailwayProperty {
   price: number;
 }
 
-export type Field = RegularProperty | RailwayProperty | GenericField;
+export interface UtilityProperty {
+  type: FieldType.Utility;
+  title: string;
+  price: number;
+  image: string;
+}
+
+export type Property = RegularProperty | RailwayProperty | UtilityProperty;
+export type Field = Property | GenericField | TaxField;
