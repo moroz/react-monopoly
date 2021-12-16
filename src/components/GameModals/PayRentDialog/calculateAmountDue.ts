@@ -53,9 +53,9 @@ export default function calculateAmountDue(
 
     case FieldType.Utility: {
       if (propertyOwnership[13] === propertyOwnership[28]) {
-        return 10 * diceResult[0] + diceResult[1];
+        return 10 * (diceResult[0] + diceResult[1]);
       } else {
-        return 4 * diceResult[0] + diceResult[1];
+        return 4 * (diceResult[0] + diceResult[1]);
       }
     }
   }
