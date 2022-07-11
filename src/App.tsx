@@ -1,11 +1,9 @@
 import "./css/app.sass";
-import Board from "./components/Board";
 import { ReducerContext, useGameStateReducer } from "./store/context";
-import StateDebugger from "./components/StateDebugger";
-import { GameStage } from "./store/state";
-import AddPlayers from "./components/AddPlayers";
-import ControlPanel from "./components/ControlPanel";
-import GameModals from "./components/GameModals";
+import NewGame from "./views/NewGame";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Gameplay from "./views/Gameplay";
+import Inventory from "./views/Inventory";
 
 function App() {
   const reducerTuple = useGameStateReducer();
@@ -13,20 +11,13 @@ function App() {
 
   return (
     <ReducerContext.Provider value={reducerTuple}>
-      <div className={String(state.stage)}>
-        <StateDebugger />
-        {!state || state.stage === GameStage.Preparation ? (
-          <>
-            <AddPlayers />
-          </>
-        ) : (
-          <>
-            <Board />
-            <ControlPanel />
-          </>
-        )}
-        <GameModals />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Gameplay />} />
+          <Route path="/new" element={<NewGame />} />
+          <Route path="/inventory" element={<Inventory />} />
+        </Routes>
+      </BrowserRouter>
     </ReducerContext.Provider>
   );
 }

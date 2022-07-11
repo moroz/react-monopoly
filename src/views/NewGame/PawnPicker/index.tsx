@@ -1,7 +1,7 @@
 import React, { HTMLProps } from "react";
 import { UseFormRegister } from "react-hook-form";
 import { PawnType } from "../../../interfaces/pawns";
-import { PawnTypeToIcon } from "../../PlayerMarkers/PlayerMarker";
+import { PawnTypeToIcon } from "../../../components/PlayerMarkers/PlayerMarker";
 import styles from "../AddPlayers.module.sass";
 
 interface Props extends HTMLProps<HTMLInputElement> {

@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { ActionType } from "../../store/actions";
 import { useGameState } from "../../store/context";
 import { TurnStage } from "../../store/state";
 import styles from "./ControlPanel.module.sass";
-import { rollDice } from "./dices";
+import { Link } from "react-router-dom";
 
 const ControlPanel = () => {
   const [{ currentTurn, turn, players, currentPlayer }, dispatch] =
@@ -34,6 +33,7 @@ const ControlPanel = () => {
 
   return (
     <div className={styles.root}>
+      <Link to="/inventory">Inventory</Link>
       <h2>Current player: {player.name}</h2>
       <p>Turn: {turn}</p>
       <p>Balance: ${player.balance}</p>
